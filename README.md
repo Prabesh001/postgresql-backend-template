@@ -11,7 +11,7 @@ Install the following packages:
 
 ```bash
 npm init -y
-npm install express mongoose cors dotenv
+npm install express pg cors dotenv
 npm install --save-dev nodemon
 ```
 
