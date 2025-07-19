@@ -2,8 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectToDb from "./config/connectToDB.js";
-import pool from "./config/db.js";
-import { getUser } from "./services/userServices.js";
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -80,6 +79,8 @@ app.get("/setup/:id", async (req, res) => {
       .json({ error: "Schema setup failed", details: err.message });
   }
 });
+
+app.use("/user", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
